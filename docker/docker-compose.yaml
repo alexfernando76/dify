@@ -748,7 +748,7 @@ services:
       VOLCENGINE_TOS_REGION: ${PLUGIN_VOLCENGINE_TOS_REGION:-}
     ports:
       - "${EXPOSE_PLUGIN_DAEMON_PORT:-5004}:${PLUGIN_DAEMON_PORT:-5002}"
-      - "${EXPOSE_PLUGIN_DEBUGGING_PORT:-5004}:${PLUGIN_DEBUGGING_PORT:-5003}"      
+      - "${EXPOSE_PLUGIN_DEBUGGING_PORT:-5006}:${PLUGIN_DEBUGGING_PORT:-5003}"      
     volumes:
       - ./volumes/plugin_daemon:/app/storage
     depends_on:
