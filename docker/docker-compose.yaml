@@ -747,7 +747,8 @@ services:
       VOLCENGINE_TOS_SECRET_KEY: ${PLUGIN_VOLCENGINE_TOS_SECRET_KEY:-}
       VOLCENGINE_TOS_REGION: ${PLUGIN_VOLCENGINE_TOS_REGION:-}
     ports:
-      - "${EXPOSE_PLUGIN_DEBUGGING_PORT:-5003}:${PLUGIN_DEBUGGING_PORT:-5003}"
+      - "${EXPOSE_PLUGIN_DAEMON_PORT:-5004}:${PLUGIN_DAEMON_PORT:-5002}"
+      - "${EXPOSE_PLUGIN_DEBUGGING_PORT:-5003}:${PLUGIN_DEBUGGING_PORT:-5003}"      
     volumes:
       - ./volumes/plugin_daemon:/app/storage
     depends_on:
@@ -832,8 +833,8 @@ services:
       - api
       - web
     ports:
-      - '${EXPOSE_NGINX_PORT:-80}:${NGINX_PORT:-80}'
-      - '${EXPOSE_NGINX_SSL_PORT:-443}:${NGINX_SSL_PORT:-443}'
+      - '${EXPOSE_NGINX_PORT:-8083}:${NGINX_PORT:-80}'
+      - '${EXPOSE_NGINX_SSL_PORT:-8443}:${NGINX_SSL_PORT:-443}'
 
   # The Weaviate vector store.
   weaviate:
